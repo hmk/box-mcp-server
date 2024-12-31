@@ -1,20 +1,23 @@
 {
   "name": "box-mcp-server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && shx chmod +x dist/*.js",
+    "clean": "shx rm -rf dist",
+    "build": "npm run clean && tsc && shx chmod +x dist/*.js",
     "prepare": "npm run build",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "prepublishOnly": "npm run build"
   },
   "bin": {
     "box-mcp": "dist/index.js"
   },
   "files": [
-    "dist"
+    "dist/**/*"
   ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
+    "box-mcp-server": "file:../../Downloads/box-mcp-server-0.0.2.tgz",
     "box-typescript-sdk-gen": "^1.9.0",
     "mammoth": "^1.9.0",
     "pdfjs-dist": "^4.9.155",
@@ -26,7 +29,6 @@
   "author": "@hmk",
   "license": "BSD-3-Clause",
   "description": "MCP Server for interacting with Box",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hmk/box-mcp-server.git"

@@ -1,10 +1,32 @@
 # box-mcp-server
 
-## Setup
+## Usage
 
+### Developer Token Authorization
 This MCP server currently supports only Developer Token authentication.
 
-To use, you must set a `BOX_DEV_TOKEN` to a [Box Developer Token](https://developer.box.com/guides/authentication/tokens/developer-tokens/)
+To get started, set the `BOX_DEV_TOKEN` to a [Box Developer Token](https://developer.box.com/guides/authentication/tokens/developer-tokens/).
+
+Begin by visiting the [Box Developer Console](https://app.box.com/developers/console) and create a new application. The authorization type does not currently matter, as all support Box Developer Token. 
+
+Once your application is created, navigate to its configuration setings and click `Generate Developer Token`.
+
+### Claude Desktop Configuration
+```json
+{
+  "mcpServers": {
+    "box": {
+      "command": "npx",
+      "args": [
+        "box-mcp-server"
+      ],
+      "env": {
+        "BOX_DEV_TOKEN": "YOUR_DEV_TOKEN_GOES_HERE"
+      }
+    }
+  }
+}
+```
 
 ## Capabilities
 
