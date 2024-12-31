@@ -37,34 +37,52 @@ Once your application is created, navigate to its configuration setings and clic
 - [x] Word
 - [ ] Others
 
-# Development
+## Development
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+* Node.js (v22 or higher)
+* npm
+* git
+
+### Setting up Development Environment
 
 To set up the development environment, follow these steps:
 
-1. Clone the repository:
+1. Fork the repository
+   * Click the "Fork" button in the top-right corner of this repository
+   * This creates your own copy of the repository under your Github acocunt
+
+2. Clone Your Fork:
     ```sh
-    git clone https://github.com/yourusername/box-mcp.git
-    cd box-mcp
+    git clone https://github.com/YOUR_USERNAME/box-mcp-server.git
+    cd box-mcp-server
     ```
 
-2. Install dependencies:
+3. Add Upstream Remote
+   ```sh
+   git remote add upstream https://github.com/hmk/box-mcp-server.git
+   ```
+4. Install dependencies:
     ```sh
     npm install
     ```
 
-3. Set the `BOX_DEV_TOKEN` environment variable:
+5. Set the `BOX_DEV_TOKEN` environment variable:
     ```sh
     export BOX_DEV_TOKEN=your_developer_token
     ```
 
-4. Run watch to keep index.js updated:
+6. Run watch to keep index.js updated:
     ```sh
     npm run watch
     ```
 
-5. Start the model context protocol development server:
+7. Start the model context protocol development server:
     ```sh
     npx @modelcontextprotocol/inspector node PATH_TO_YOUR_CLONED_REPO/dist/index.js
     ```
 
-6. If the development server did not load the environment variable correctly, set the `BOX_DEV_TOKEN` on the left-hand side
+8. If the development server did not load the environment variable correctly, set the `BOX_DEV_TOKEN` on the left-hand side of the mcp inspector.
