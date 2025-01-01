@@ -1,6 +1,15 @@
 # box-mcp-server
+[![smithery badge](https://smithery.ai/badge/box-mcp-server)](https://smithery.ai/server/box-mcp-server)
 
 ## Usage
+
+### Installing via Smithery
+
+To install Box for Claude Desktop automatically via [Smithery](https://smithery.ai/server/box-mcp-server):
+
+```bash
+npx -y @smithery/cli install box-mcp-server --client claude
+```
 
 ### Developer Token Authorization
 This MCP server currently supports only Developer Token authentication.
