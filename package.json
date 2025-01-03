@@ -1,6 +1,6 @@
 {
   "name": "box-mcp-server",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "box-mcp-server/dist/index.js",
   "scripts": {
     "clean": "shx rm -rf dist",
