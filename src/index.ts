@@ -9,7 +9,7 @@ import {
   ReadResourceRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
 import { BoxClient, BoxDeveloperTokenAuth } from "box-typescript-sdk-gen";
-import * as pdfjsLib from "pdfjs-dist";
+import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
 import * as mammoth from "mammoth";
 
 // Initialize the Box client
