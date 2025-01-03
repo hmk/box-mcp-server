@@ -15,7 +15,8 @@
     "box-mcp-server": "./bin/box-mcp-server.sh"
   },
   "files": [
-    "dist/**/*"
+    "dist/**/*",
+    "bin/**/*"
   ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
