@@ -1,4 +1,4 @@
-name: Run Jest Tests
+name: "Node v20 & v22"
 
 on:
   push:

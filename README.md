@@ -1,7 +1,6 @@
 # box-mcp-server
 
-![CI](https://github.com/hmk/box-mcp-server/actions/workflows/ci.yml/badge.svg?branch=main)
-
+![CI](https://github.com/hmk/box-mcp-server/actions/workflows/jest.yml/badge.svg?branch=main)
 
 ## Usage
 
