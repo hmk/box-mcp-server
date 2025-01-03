@@ -1,7 +1,7 @@
 {
   "name": "box-mcp-server",
   "version": "0.1.4",
-  "main": "box-mcp-server/dist/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "clean": "shx rm -rf dist",
     "build": "tsc && shx chmod +x dist/*.js",
@@ -10,9 +10,6 @@
     "prepublishOnly": "npm run build",
     "test": "jest",
     "test:watch": "jest --watch"
-  },
-  "bin": {
-    "box-mcp-server": "bin/box-mcp-server.sh"
   },
   "files": [
     "dist/**/*",
