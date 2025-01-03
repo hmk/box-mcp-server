@@ -17,7 +17,6 @@
   ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
-    "box-mcp-server": "file:../../Downloads/box-mcp-server-0.0.2.tgz",
     "box-typescript-sdk-gen": "^1.9.0",
     "mammoth": "^1.9.0",
     "pdfjs-dist": "^4.9.155",
