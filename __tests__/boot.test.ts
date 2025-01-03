@@ -69,9 +69,7 @@ describe('box-mcp-server initialization', () => {
         responseBuffer += data.toString();
     
         try {
-          console.log('Request payload:', requestPayload);
           const response = JSON.parse(responseBuffer);
-          console.log('Response received:', response);
           expect(response).toEqual(JSON.parse(expectedResponse));
           resolved = true; // Mark as resolved
           resolve();
