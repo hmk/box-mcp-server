@@ -10,7 +10,7 @@
     "prepublishOnly": "npm run build"
   },
   "bin": {
-    "box-mcp": "dist/index.js"
+    "box-mcp-server": "./bin/box-mcp-server.sh"
   },
   "files": [
     "dist/**/*"
