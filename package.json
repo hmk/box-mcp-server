@@ -1,7 +1,6 @@
 {
   "name": "box-mcp-server",
   "version": "0.1.4",
-  "main": "box-mcp-server/dist/index.js",
   "scripts": {
     "clean": "shx rm -rf dist",
     "build": "npm run clean && tsc && shx chmod +x dist/*.js",
