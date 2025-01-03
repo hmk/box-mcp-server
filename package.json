@@ -15,6 +15,7 @@
     "dist/**/*",
     "bin/**/*"
   ],
+  "bin": "dist/index.js",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
     "box-typescript-sdk-gen": "^1.9.0",
