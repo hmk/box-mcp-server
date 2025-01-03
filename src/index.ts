@@ -1,7 +1,6 @@
-#!/usr/bin/env node
-
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import packageJson from "../package.json" assert { type: "json" };
 import {
   CallToolRequestSchema,
   ListResourcesRequestSchema,
@@ -9,7 +8,7 @@ import {
   ReadResourceRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
 import { BoxClient, BoxDeveloperTokenAuth } from "box-typescript-sdk-gen";
-import * as pdfjsLib from "pdfjs-dist";
+import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
 import * as mammoth from "mammoth";
 
 // Initialize the Box client
@@ -99,8 +98,8 @@ async function readBoxFile(fileId: string) {
 // Initialize the MCP server
 const server = new Server(
   {
-    name: "box-mcp-server",
-    version: "0.0.1",
+    name: packageJson.name,
+    version: packageJson.version,
   },
   {
     capabilities: {

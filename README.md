@@ -1,5 +1,8 @@
 # box-mcp-server
 
+![CI](https://github.com/hmk/box-mcp-server/actions/workflows/ci.yml/badge.svg?branch=main)
+
+
 ## Usage
 
 ### Developer Token Authorization

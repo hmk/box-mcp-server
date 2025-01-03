@@ -1,23 +1,24 @@
 {
   "name": "box-mcp-server",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "main": "index.js",
   "scripts": {
     "clean": "shx rm -rf dist",
     "build": "npm run clean && tsc && shx chmod +x dist/*.js",
     "prepare": "npm run build",
     "watch": "tsc --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "bin": {
-    "box-mcp": "dist/index.js"
+    "box-mcp-server": "./bin/box-mcp-server.sh"
   },
   "files": [
     "dist/**/*"
   ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
-    "box-mcp-server": "file:../../Downloads/box-mcp-server-0.0.2.tgz",
     "box-typescript-sdk-gen": "^1.9.0",
     "mammoth": "^1.9.0",
     "pdfjs-dist": "^4.9.155",
@@ -36,5 +37,18 @@
   "bugs": {
     "url": "https://github.com/hmk/box-mcp-server/issues"
   },
-  "homepage": "https://github.com/hmk/box-mcp-server#readme"
+  "homepage": "https://github.com/hmk/box-mcp-server#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "tsx": "^4.19.2"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "<rootDir>/dist/"
+    ]
+  }
 }
