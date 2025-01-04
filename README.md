@@ -18,7 +18,7 @@ If you have not already, Box prompt you to set up 2 factor authentication and Au
 
 via the Box Application's Configuration page. **Make sure to reauthorize the application if you are modifying these settings**.
 
-Download/store the configuration JSON somewhere on your computer. We will set the environment variable `BOX_JWT_CONFIG_PATH` to its location. We will also set the `BOX_USER_ID` to the user whose files we will be accessing. You can find your own Box User Id on your [account page](https://app.box.com/account).
+Download/store the configuration JSON somewhere on your computer. We will set the environment variable `BOX_JWT_CONFIG_PATH` to its location. We will also set the `BOX_USER_ID` to the user whose files we will be accessing. You can find your own Box User Id on your [account page](https://app.box.com/account). You can also set the `BOX_JWT` environment variable to the JSON itself (as an alternative to the path).
 
 #### Claude Desktop Configuration
 

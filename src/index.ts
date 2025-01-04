@@ -21,8 +21,13 @@ if (process.env.BOX_DEV_TOKEN) {
   const jwtAuth = new BoxJwtAuth({ config: jwtConfig });
   const userAuth = jwtAuth.withUserSubject(process.env.BOX_USER_ID);
   auth = userAuth;
+} else if (process.env.BOX_JWT && process.env.BOX_USER_ID) {
+  const jwtConfig = JwtConfig.fromConfigJsonString(process.env.BOX_JWT);
+  const jwtAuth = new BoxJwtAuth({ config: jwtConfig });
+  const userAuth = jwtAuth.withUserSubject(process.env.BOX_USER_ID);
+  auth = userAuth;
 } else {
-  throw new Error("BOX_DEV_TOKEN or BOX_JWT_CONFIG_PATH && BOX_USER_ID must be set as environment variable(s)");
+  throw new Error("BOX_DEV_TOKEN or BOX_USER_ID && (BOX_JWT || BOX_JWT_CONFIG_PATH) must be set as environment variable(s)");
 }
 const client = new BoxClient({ auth });
 
