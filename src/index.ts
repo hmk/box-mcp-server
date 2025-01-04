@@ -8,17 +8,22 @@ import {
   ListToolsRequestSchema,
   ReadResourceRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
-import { BoxClient, BoxDeveloperTokenAuth } from "box-typescript-sdk-gen";
+import { BoxClient, BoxDeveloperTokenAuth, BoxJwtAuth, JwtConfig } from "box-typescript-sdk-gen";
 import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
 import * as mammoth from "mammoth";
 
-// Initialize the Box client
-const boxToken = process.env.BOX_DEV_TOKEN;
-if (!boxToken) {
-  throw new Error("BOX_DEV_TOKEN must be set as an environment variable");
+// Initialize Box client based on auth method
+let auth: BoxDeveloperTokenAuth | BoxJwtAuth;
+if (process.env.BOX_DEV_TOKEN) {
+  auth = new BoxDeveloperTokenAuth({ token: process.env.BOX_DEV_TOKEN });
+} else if (process.env.BOX_JWT_CONFIG_PATH && process.env.BOX_USER_ID) {
+  const jwtConfig = JwtConfig.fromConfigFile(process.env.BOX_JWT_CONFIG_PATH);
+  const jwtAuth = new BoxJwtAuth({ config: jwtConfig });
+  const userAuth = jwtAuth.withUserSubject(process.env.BOX_USER_ID);
+  auth = userAuth;
+} else {
+  throw new Error("BOX_DEV_TOKEN or BOX_JWT_CONFIG_PATH && BOX_USER_ID must be set as environment variable(s)");
 }
-
-const auth = new BoxDeveloperTokenAuth({ token: boxToken });
 const client = new BoxClient({ auth });
 
 // Shared file reading functionality
