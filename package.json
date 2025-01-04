@@ -1,6 +1,6 @@
 {
   "name": "box-mcp-server",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "type": "module",
