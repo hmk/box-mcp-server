@@ -2,10 +2,6 @@
 
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { readFileSync } from "fs";
-const packageJson = JSON.parse(
-  readFileSync(new URL("../package.json", import.meta.url), "utf-8")
-);
 import {
   CallToolRequestSchema,
   ListResourcesRequestSchema,
@@ -103,8 +99,8 @@ async function readBoxFile(fileId: string) {
 // Initialize the MCP server
 const server = new Server(
   {
-    name: packageJson.name,
-    version: packageJson.version,
+    name: 'box-mcp-server',
+    version: '0.1.9',
   },
   {
     capabilities: {

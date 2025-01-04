@@ -1,7 +1,13 @@
 {
   "name": "box-mcp-server",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "main": "dist/index.js",
+  "module": "dist/index.js",
+  "type": "module",
+  "access": "public",
+  "bin": {
+    "box-mcp-server": "dist/index.js"
+  },
   "scripts": {
     "clean": "shx rm -rf dist",
     "build": "tsc && shx chmod +x dist/*.js",
@@ -12,10 +18,8 @@
     "test:watch": "jest --watch"
   },
   "files": [
-    "dist/**/*",
-    "bin/**/*"
+    "dist"
   ],
-  "bin": "dist/index.js",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
     "box-typescript-sdk-gen": "^1.9.0",
@@ -24,7 +28,6 @@
     "shx": "^0.3.4",
     "typescript": "^5.7.2"
   },
-  "type": "module",
   "keywords": [],
   "author": "@hmk",
   "license": "BSD-3-Clause",
