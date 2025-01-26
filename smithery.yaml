@@ -1,0 +1,21 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    properties:
+      boxJwtConfigPath:
+        type: string
+        description: Path to the Box JWT configuration file.
+      boxUserId:
+        type: string
+        description: Box User ID for JWT authorization.
+      boxDevToken:
+        type: string
+        description: Box Developer Token for token-based authorization.
+  commandFunction:
+    # A function that produces the CLI command to start the MCP on stdio.
+    |-
+    (config) => { const env = {}; if (config.boxDevToken) { env.BOX_DEV_TOKEN = config.boxDevToken; } else if (config.boxJwtConfigPath && config.boxUserId) { env.BOX_JWT_CONFIG_PATH = config.boxJwtConfigPath; env.BOX_USER_ID = config.boxUserId; } return { command: 'node', args: ['dist/index.js'], env }; }
