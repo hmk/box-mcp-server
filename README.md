@@ -1,6 +1,7 @@
 # box-mcp-server
 
 ![CI](https://github.com/hmk/box-mcp-server/actions/workflows/jest.yml/badge.svg?branch=main)
+[![smithery badge](https://smithery.ai/badge/box-mcp-server)](https://smithery.ai/server/box-mcp-server)
 
 ## Usage
 
@@ -81,6 +82,14 @@ Before you begin, ensure you have the following installed:
 - Node.js (v22 or higher)
 - npm
 - git
+
+### Installing via Smithery
+
+To install Box for Claude Desktop automatically via [Smithery](https://smithery.ai/server/box-mcp-server):
+
+```bash
+npx -y @smithery/cli install box-mcp-server --client claude
+```
 
 ### Setting up Development Environment
 
