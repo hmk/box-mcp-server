@@ -1,0 +1,21 @@
+diff --git a/node_modules/pdfjs-dist/legacy/build/pdf.mjs b/node_modules/pdfjs-dist/legacy/build/pdf.mjs
+index 2975d8d..163818a 100644
+--- a/node_modules/pdfjs-dist/legacy/build/pdf.mjs
++++ b/node_modules/pdfjs-dist/legacy/build/pdf.mjs
+@@ -5251,12 +5251,14 @@ function getVerbosityLevel() {
+ }
+ function info(msg) {
+   if (verbosity >= VerbosityLevel.INFOS) {
+-    console.log(`Info: ${msg}`);
++      console.log(`Info: ${msg}`);
+   }
+ }
+ function warn(msg) {
+   if (verbosity >= VerbosityLevel.WARNINGS) {
+-    console.log(`Warning: ${msg}`);
++    if (process.env.NODE_ENV === 'development') {
++      console.log(`Warning: ${msg}`);
++    }
+   }
+ }
+ function unreachable(msg) {
