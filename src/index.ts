@@ -130,7 +130,7 @@ async function readBoxFile(fileId: string) {
 const server = new Server(
   {
     name: 'box-mcp-server',
-    version: '0.2.2',
+    version: '0.3.1',
   },
   {
     capabilities: {
