@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+import process from 'process';
+if (process.env.NODE_ENV !== 'development') {
+  process.removeAllListeners('warning');
+}
+
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import {
