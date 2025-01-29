@@ -31,6 +31,12 @@ if (process.env.BOX_DEV_TOKEN) {
   const jwtAuth = new BoxJwtAuth({ config: jwtConfig });
   const userAuth = jwtAuth.withUserSubject(process.env.BOX_USER_ID);
   auth = userAuth;
+} else if (process.env.BOX_JWT_BASE64 && process.env.BOX_USER_ID) {
+  const decodedJwt = Buffer.from(process.env.BOX_JWT_BASE64, "base64").toString("utf-8");
+  const jwtConfig = JwtConfig.fromConfigJsonString(decodedJwt);
+  const jwtAuth = new BoxJwtAuth({ config: jwtConfig });
+  const userAuth = jwtAuth.withUserSubject(process.env.BOX_USER_ID);
+  auth = userAuth;
 } else {
   throw new Error("BOX_DEV_TOKEN or BOX_USER_ID && (BOX_JWT || BOX_JWT_CONFIG_PATH) must be set as environment variable(s)");
 }

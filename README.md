@@ -4,11 +4,28 @@
 
 ## Usage
 
+You will need:
+
+- `BOX_USER_ID` 
+
+and one of the following:
+
+- `BOX_JWT_BASE64` (recommended)
+- `BOX_JWT_CONFIG_PATH`
+- `BOX_JWT`
+
+## Auth
+
 ### JSON Web Token (JWT) Authorization (recommended)
 
-Using a JWT Config will allow persistent connection to Box. You will need a paid Box enterprise account, or you can sign up for a [free developer account](https://account.box.com/signup/n/developer) (make sure you are signed out of Box before clicking that link).
+#### How to get a JWT
 
-Begin by visiting the [Box Developer Console](https://app.box.com/developers/console) and create a new application. Make sure the authorization type is JSON Web Token.
+Using a JWT Config allows persistent connection to Box.
+
+
+You will need a paid Box enterprise account, or you can sign up for a [free developer account](https://account.box.com/signup/n/developer) (make sure you are signed out of Box before clicking that link).
+
+Visit the [Box Developer Console](https://app.box.com/developers/console) and create a new application. Make sure the authorization type is JSON Web Token.
 
 Go to `Configuration > Add and Manage Public Keys` and Generate a Public/Private Keypair.
 If you have not already, Box prompt you to set up 2 factor authentication and Authorize the application as an administrator in your box account. You will need to:
@@ -18,7 +35,15 @@ If you have not already, Box prompt you to set up 2 factor authentication and Au
 
 via the Box Application's Configuration page. **Make sure to reauthorize the application if you are modifying these settings**.
 
-Download/store the configuration JSON somewhere on your computer. We will set the environment variable `BOX_JWT_CONFIG_PATH` to its location. We will also set the `BOX_USER_ID` to the user whose files we will be accessing. You can find your own Box User Id on your [account page](https://app.box.com/account). You can also set the `BOX_JWT` environment variable to the JSON itself (as an alternative to the path).
+#### Base64 encoding JWT
+
+To encode your JWT in Base64, you can use the following command in your terminal:
+
+```sh
+cat /path/to/your/box-jwt-config.json | base64
+```
+
+Replace `/path/to/your/box-jwt-config.json` with the actual path to your JWT configuration file. This will output the Base64 encoded JWT which you can then use in your environment variables.
 
 #### Claude Desktop Configuration
 
@@ -29,7 +54,7 @@ Download/store the configuration JSON somewhere on your computer. We will set th
       "command": "npx",
       "args": ["box-mcp-server"],
       "env": {
-        "BOX_JWT_CONFIG_PATH": "/path/to/your/box-jwt-config.json",
+        "BOX_JWT_BASE64": "YOUR_BASE64_ENCODED_JWT",
         "BOX_USER_ID": "123456"
       }
     }
@@ -78,7 +103,7 @@ Once your application is created, navigate to its configuration setings and clic
 
 Before you begin, ensure you have the following installed:
 
-- Node.js (v22 or higher)
+- Node.js (recommended v22 or higher)
 - npm
 - git
 
