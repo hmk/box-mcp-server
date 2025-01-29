@@ -5,6 +5,13 @@ if (process.env.NODE_ENV !== 'development') {
   process.removeAllListeners('warning');
 }
 
+const originalConsoleLog = console.log;
+console.log = (message, ...args) => {
+  if (!message.startsWith("Warning: ")) {
+    originalConsoleLog(message, ...args);
+  }
+};
+
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import {
@@ -16,6 +23,8 @@ import {
 import { BoxClient, BoxDeveloperTokenAuth, BoxJwtAuth, JwtConfig } from "box-typescript-sdk-gen";
 import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
 import * as mammoth from "mammoth";
+
+console.log = originalConsoleLog;
 
 // Initialize Box client based on auth method
 let auth: BoxDeveloperTokenAuth | BoxJwtAuth;
